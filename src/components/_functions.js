@@ -13,7 +13,7 @@ async function getData() {
 }
 
 async function singleComponentData() {
-  const data = await module.exports.getData();
+  const data = await getData();
   var finalObject = {};
 
   data.feeds.forEach(async (fieldName) => {
@@ -33,7 +33,7 @@ async function singleComponentData() {
 }
 
 async function singleComponentName() {
-  const data = await module.exports.getData();
+  const data = await getData();
   var definitions = {};
 
   Object.keys(data.channel).forEach(async (item, index) => {
