@@ -8,15 +8,12 @@ function Chart2(dataReceived) {
   const dataName = dataReceived.name;
   const formatData = "DD MMMM HH:MM";
 
-  var data = [];
-  var dataSeries = {
+  const dataSeries = {
     type: "line",
     xValueFormatString: formatData,
     dataPoints: dataLabel,
   };
-  data.push(dataSeries);
-
-  console.log(data);
+  const data = [dataSeries];
 
   const options = {
     zoomEnabled: true,

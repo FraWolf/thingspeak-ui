@@ -1,5 +1,5 @@
 import React from "react";
-import { getData } from "../_functions/functions";
+import { getData } from "../_functions";
 
 function Navbar() {
   async function handleClick() {
