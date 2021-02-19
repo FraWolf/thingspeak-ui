@@ -1,11 +1,11 @@
-const moment = require("moment");
+const { PROJECT_ID, READ_APIKEY } = require("../config.json");
 
 module.exports = {
   getData: async function () {
     // Make web request to ThingSpeak API Service
     const requestData = await (
       await fetch(
-        "http://api.thingspeak.com/channels/305396/feed.json?api_key=KKQ9Y0YFT2NI4HRS"
+        `http://api.thingspeak.com/channels/${PROJECT_ID}/feed.json?api_key=${READ_APIKEY}`
       )
     ).json();
 
