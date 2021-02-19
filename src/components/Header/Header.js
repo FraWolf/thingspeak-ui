@@ -20,7 +20,7 @@ function Header() {
         marginBottom: "40px",
       }}
     >
-      <div class="text-center bg-light p-5">
+      <div className="text-center bg-light p-5">
         <h1>{info.channel.name}</h1>
         <p className="lead">{info.channel.description}</p>
         <a

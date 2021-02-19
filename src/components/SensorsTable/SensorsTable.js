@@ -4,8 +4,8 @@ function Table(props) {
   const objectKeys = Object.keys(object);
 
   return (
-    <table class="table">
-      <thead class="table-dark">
+    <table className="table">
+      <thead className="table-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
