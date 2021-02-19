@@ -1,6 +1,5 @@
 var React = require("react");
 var CanvasJSReact = require("canvasjs-react-charts");
-var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function Chart2(dataReceived) {

@@ -9,9 +9,9 @@ function Navbar() {
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <button type="button" className="btn btn-link navbar-brand" href="/">
           Sensor APP
-        </a>
+        </button>
         {/* Button for the mobile version */}
         <button
           className="navbar-toggler"
@@ -29,18 +29,18 @@ function Navbar() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {/* Home button */}
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              {/*<a className="nav-link active" aria-current="page" href="/">
                 Home
-              </a>
+  </a>*/}
             </li>
           </ul>
-          <a
+          <button
             className="btn btn-outline-light"
-            role="button"
+            type="button"
             onClick={handleClick}
           >
             <i className="fas fa-sync"></i> Refresh
-          </a>
+          </button>
         </div>
       </div>
     </nav>

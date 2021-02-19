@@ -7,8 +7,11 @@ function Header() {
     channel: { name: "Caricamento...", description: "Carimento..." },
   });
 
-  useEffect(async () => {
-    setInfo(await getData());
+  useEffect(() => {
+    async function callData() {
+      setInfo(await getData());
+    }
+    callData();
   }, []);
 
   return (
@@ -25,6 +28,7 @@ function Header() {
           href={`https://thingspeak.com/channels/${PROJECT_ID}`}
           role="button"
           target="_blank"
+          rel="noreferrer"
         >
           Vedi su ThingSpeak »
         </a>

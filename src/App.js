@@ -2,27 +2,26 @@ import React, { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
-import Table from "./components/SensorsTable/SensorsTable";
 import Chart from "./components/Chart/Chart2";
 import Loading from "./components/Loading/Loading";
 
 import {
-  getData,
   singleComponentData,
   singleComponentName,
 } from "./components/_functions";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [info, setInfo] = useState({});
   const [data, setData] = useState({});
   const [name, setName] = useState({});
 
-  useEffect(async () => {
-    setInfo(await getData());
-    setData(await singleComponentData());
-    setName(await singleComponentName());
-    setLoading(false);
+  useEffect(() => {
+    async function callData() {
+      setData(await singleComponentData());
+      setName(await singleComponentName());
+      setLoading(false);
+    }
+    callData();
   }, []);
 
   return (
@@ -30,7 +29,7 @@ function App() {
       <Navbar />
       <Header />
       {loading && <Loading />}
-      {!loading && Object.values(data).length == 0 && (
+      {!loading && Object.values(data).length === 0 && (
         <div className="text-center">
           <h3>Nessun sensore collegato</h3>
         </div>
