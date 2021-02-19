@@ -4,7 +4,7 @@ async function getData() {
   // Make web request to ThingSpeak API Service
   const requestData = await (
     await fetch(
-      `http://api.thingspeak.com/channels/${PROJECT_ID}/feed.json?api_key=${READ_APIKEY}`
+      `https://api.thingspeak.com/channels/${PROJECT_ID}/feed.json?api_key=${READ_APIKEY}`
     )
   ).json();
 
