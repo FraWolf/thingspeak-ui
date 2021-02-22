@@ -1,5 +1,6 @@
 import React from "react";
-import { CanvasJSChart } from "canvasjs-react-charts";
+import CanvasJSReact from "./../../assets/canvasjs.react";
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function Chart2(dataReceived) {
   const dataLabel = dataReceived.data;
