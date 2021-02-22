@@ -40,11 +40,7 @@ function App() {
             {Object.values(data).map((item, index) => {
               return (
                 <div className="col-md-6" key={index}>
-                  {/* <h3>{name[`field${parseInt(index) + 1}`]}</h3> */}
-                  <Chart
-                    data={item}
-                    name={name[`field${parseInt(index) + 1}`]}
-                  />
+                  <Chart data={item} name={name[`field${index + 1}`]} />
                 </div>
               );
             })}
