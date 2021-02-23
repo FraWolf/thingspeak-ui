@@ -10,7 +10,7 @@ function Navbar() {
     <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
       <div className="container-fluid">
         <button type="button" className="btn btn-link navbar-brand" href="/">
-          Sensor APP
+          Arduino Sensors WebApp
         </button>
         {/* Button for the mobile version */}
         <button
