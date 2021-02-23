@@ -44,7 +44,7 @@ function Chart2(dataReceived) {
         snapToDataPoint: true,
       },
     },
-    data: data, // random data
+    data: data, // Sensors data
   };
 
   return <CanvasJSChart options={options} />;

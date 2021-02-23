@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Chart from "./components/Chart/Chart2";
 import Loading from "./components/Loading/Loading";
 
@@ -51,6 +52,7 @@ function App() {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }

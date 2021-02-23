@@ -1,0 +1,10 @@
+.footer {
+  margin-top: 40px;
+}
+
+.footer p {
+  display: block;
+  width: 100%;
+  color: #ababab;
+  margin-top: 10px;
+}
