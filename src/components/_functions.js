@@ -12,7 +12,7 @@ async function getData() {
   return requestData;
 }
 
-async function singleComponentData() {
+async function singleComponentData(name = null) {
   const data = await getData();
   var finalObject = {};
 
@@ -28,6 +28,10 @@ async function singleComponentData() {
       }
     });
   });
+
+  if (name !== null) {
+    finalObject = finalObject[name] || [];
+  }
 
   return finalObject;
 }

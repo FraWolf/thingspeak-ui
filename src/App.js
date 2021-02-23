@@ -40,7 +40,11 @@ function App() {
             {Object.values(data).map((item, index) => {
               return (
                 <div className="col-md-6" key={index}>
-                  <Chart data={item} name={name[`field${index + 1}`]} />
+                  <Chart
+                    data={item}
+                    name={name[`field${index + 1}`]}
+                    fieldIndex={`field${index + 1}`}
+                  />
                 </div>
               );
             })}
