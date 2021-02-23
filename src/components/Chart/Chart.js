@@ -1,47 +1,53 @@
-import React from "react";
-import { Chart } from "react-charts";
+import React, { useState, useEffect } from "react";
+import { singleComponentData } from "../_functions";
+import CanvasJSReact from "./../../assets/canvasjs.react";
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-function SimpleChart(dataReceived) {
-  const dataLabel = dataReceived.data;
+function Chart(dataReceived) {
+  const [dataLabel, setDataLabel] = useState([]);
+  const fieldName = dataReceived.fieldIndex;
   const dataName = dataReceived.name;
+  const fieldData = dataReceived.data;
+  const formatData = "DD MMMM HH:MM";
 
-  const data = React.useMemo(
-    () => [
-      {
-        label: "Series 1",
-        data: dataLabel,
-      },
-    ],
-    []
-  );
+  useEffect(() => {
+    // Set the first item received in the state
+    setDataLabel(fieldData);
 
-  const axes = React.useMemo(
-    () => [
-      {
-        primary: true,
-        type: "time",
-        position: "bottom",
-      },
-      {
-        type: "linear",
-        position: "left",
-      },
-    ],
-    []
-  );
+    // Interval to update in real time the charts
+    const interval = setInterval(async () => {
+      // Adding the new data into the dataLabel state
+      setDataLabel(await singleComponentData(fieldName));
+    }, 5000);
 
-  // A react-chart hyper-responsively and continuously fills the available
-  // space of its parent element automatically
-  return (
-    <div
-      style={{
-        width: "400px",
-        height: "300px",
-      }}
-    >
-      <Chart data={data} axes={axes} />
-    </div>
-  );
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(interval);
+  }, [fieldData, fieldName]);
+
+  const dataSeries = {
+    type: "line",
+    xValueFormatString: formatData,
+    dataPoints: dataLabel,
+  };
+  const data = [dataSeries];
+
+  const options = {
+    zoomEnabled: true,
+    animationEnabled: true,
+    title: {
+      text: dataName,
+    },
+    axisX: {
+      valueFormatString: formatData,
+      crosshair: {
+        enabled: true,
+        snapToDataPoint: true,
+      },
+    },
+    data: data, // Sensors data
+  };
+
+  return <CanvasJSChart options={options} />;
 }
 
-export default SimpleChart;
+export default Chart;
