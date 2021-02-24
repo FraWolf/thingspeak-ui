@@ -41,22 +41,21 @@ function Header() {
           Vedi su ThingSpeak »
         </a>
         {device && device === "computer" && (
-          <a
+          <button
             className="btn btn-lg btn-outline-success ms-3"
             data-bs-toggle="modal"
             data-bs-target="#downloadAppModal"
           >
             Scarica l'App!
-          </a>
+          </button>
         )}
         {device && device === "mobile" && (
-          <a
+          <button
             className="btn btn-lg btn-outline-success ms-3"
             href={"/apk/DHT11_-_BTHETH.apk"}
-            role="button"
           >
             Scarica l'App!
-          </a>
+          </button>
         )}
       </div>
     </main>
