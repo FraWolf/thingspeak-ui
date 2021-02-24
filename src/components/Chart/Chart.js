@@ -8,7 +8,7 @@ function Chart(dataReceived) {
   const fieldName = dataReceived.fieldIndex;
   const dataName = dataReceived.name;
   const fieldData = dataReceived.data;
-  const formatData = "DD MMMM HH:MM";
+  const formatData = "DD MMMM HH:mm";
 
   useEffect(() => {
     // Set the first item received in the state
@@ -47,7 +47,11 @@ function Chart(dataReceived) {
     data: data, // Sensors data
   };
 
-  return <CanvasJSChart options={options} />;
+  return (
+    <div className="mb-3">
+      <CanvasJSChart options={options} />
+    </div>
+  );
 }
 
 export default Chart;
