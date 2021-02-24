@@ -5,7 +5,6 @@ import { getData } from "../_functions";
 import { PROJECT_ID } from "../../config.json";
 
 function Header() {
-  const [device, setDevide] = useState("computer");
   const [info, setInfo] = useState({
     channel: { name: "Caricamento...", description: "Carimento..." },
   });
@@ -15,14 +14,7 @@ function Header() {
       setInfo(await getData());
     }
 
-    // Getting the device type
-    function detectDevice() {
-      setDevide(navigator.maxTouchPoints ? "mobile" : "computer");
-    }
-
     callData();
-    detectDevice();
-    window.addEventListener("resize", detectDevice);
   }, []);
 
   return (
