@@ -26,7 +26,7 @@ function DownloadModal() {
               scaricare l'applicazione!
             </div>
             <div className="text-center">
-              <img src="/img/qrcode.png" height="50%" />
+              <img src="/img/qrcode.png" alt="QR Code" />
             </div>
           </div>
           <div className="modal-footer">
