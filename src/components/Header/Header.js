@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { isBrowser, isMobile } from "react-device-detect";
+
 import { getData } from "../_functions";
 import { PROJECT_ID } from "../../config.json";
 
@@ -15,7 +17,7 @@ function Header() {
 
     // Getting the device type
     function detectDevice() {
-      setDevide(!!navigator.maxTouchPoints ? "mobile" : "computer");
+      setDevide(navigator.maxTouchPoints ? "mobile" : "computer");
     }
 
     callData();
@@ -41,7 +43,7 @@ function Header() {
         >
           Vedi su ThingSpeak »
         </a>
-        {device && device === "computer" && (
+        {!isMobile && isBrowser && (
           <button
             className="btn btn-lg btn-outline-success ms-3"
             data-bs-toggle="modal"
@@ -50,13 +52,13 @@ function Header() {
             Scarica l'App!
           </button>
         )}
-        {device && device === "mobile" && (
-          <button
+        {!isBrowser && isMobile && (
+          <a
             className="btn btn-lg btn-outline-success ms-3"
             href={"/apk/DHT11_-_BTHETH.apk"}
           >
             Scarica l'App!
-          </button>
+          </a>
         )}
       </div>
     </main>
