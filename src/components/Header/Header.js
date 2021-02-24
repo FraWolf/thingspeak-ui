@@ -19,6 +19,7 @@ function Header() {
     }
 
     callData();
+    detectDevice();
     window.addEventListener("resize", detectDevice);
   }, []);
 
