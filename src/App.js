@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Chart from "./components/Chart/Chart";
+import DownloadModal from "./components/Modals/DownloadModal";
 import Loading from "./components/Loading/Loading";
 
 import {
@@ -17,11 +18,13 @@ function App() {
   const [name, setName] = useState({});
 
   useEffect(() => {
+    // Getting the Data API
     async function callData() {
       setData(await singleComponentData());
       setName(await singleComponentName());
       setLoading(false);
     }
+
     callData();
   }, []);
 
@@ -52,6 +55,8 @@ function App() {
           </div>
         </div>
       )}
+
+      <DownloadModal />
       <Footer />
     </div>
   );
