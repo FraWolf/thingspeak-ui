@@ -23,7 +23,7 @@ async function singleComponentData(name = null) {
 
         finalObject[item].push({
           x: new Date(fieldName["created_at"]),
-          y: parseFloat(fieldName[item]),
+          y: parseFloat(fieldName[item]) || 0.0,
         });
       }
     });
