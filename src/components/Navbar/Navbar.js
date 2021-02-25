@@ -1,11 +1,6 @@
 import React from "react";
-import { getData } from "../_functions";
 
 function Navbar() {
-  async function handleClick() {
-    await getData();
-  }
-
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
       <div className="container-fluid">
@@ -29,18 +24,8 @@ function Navbar() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {/* Home button */}
             <li className="nav-item">
-              {/*<a className="nav-link active" aria-current="page" href="/">
-                Home
-  </a>*/}
             </li>
           </ul>
-          <button
-            className="btn btn-outline-light"
-            type="button"
-            onClick={handleClick}
-          >
-            <i className="fas fa-sync"></i> Refresh
-          </button>
         </div>
       </div>
     </nav>
